@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<media charset="UTF-8">
+	<title>Watering Interface</title>
+</head>
+<body>
+	<div>
+		<iframe src="http://raspberrypi:8081" height="480" width="640"></iframe>
+	</div>
+	
+	<div>
+		<form action="https://api.particle.io/v1/devices/2d0035000a47373336323230/moistureThreshold?access_token=3f43bfbf84424bb72ddb3142dcd662c28d570816" method="POST" target="minimum_iframe">
+		<label for="status">Minimum Moisture</label>
+		<input id="status" type="number" min="1" max="100" name="arg">
+		<button type="submit">Set</button>
+		</form>
+	</div>
+	
+	<div>
+		<form action="https://api.particle.io/v1/devices/2d0035000a47373336323230/waterTime?access_token=3f43bfbf84424bb72ddb3142dcd662c28d570816" method="POST" target="water_iframe">
+		<label for="status">Water For (seconds)</label>
+		<input id="status" type="number" min="1" name="arg">
+		<button type="submit">Set</button>
+		</form>
+	</div>
+	
+	<div>
+		<form action="https://api.particle.io/v1/devices/2d0035000a47373336323230/waitTime?access_token=3f43bfbf84424bb72ddb3142dcd662c28d570816" method="POST" target="sensor_iframe">
+		<label for="status">Check Moisture Every (minutes)</label>
+		<input id="status" type="number" min="1" name="arg">
+		<button type="submit">Set</button>
+		</form>
+	</div>
+	
+		
+	<div>
+		<iframe width="450" height="260" style="border: 1px solid #cccccc;" src="https://thingspeak.com/channels/786078/charts/1?bgcolor=%23ffffff&color=%23388E8E&dynamic=true&results=60&title=Soil+Moisture&type=spline&yaxis=Moisture+Level&yaxismin=0&api_key=71P3IGHYZG8L4REP"></iframe>
+	</div>
+	
+	<iframe name="water_iframe" src="https://api.particle.io/v1/devices/2d0035000a47373336323230/waterTime?access_token=3f43bfbf84424bb72ddb3142dcd662c28d570816" style="width:0; height:0; border:0; border:none"></iframe>
+	<iframe name="sensor_iframe" src="https://api.particle.io/v1/devices/2d0035000a47373336323230/waitTime?access_token=3f43bfbf84424bb72ddb3142dcd662c28d570816" style="width:0; height:0; border:0; border:none"></iframe>
+	<iframe name="minimum_iframe" src="https://api.particle.io/v1/devices/2d0035000a47373336323230/moistureThreshold?access_token=3f43bfbf84424bb72ddb3142dcd662c28d570816" style="width:0; height:0; border:0; border:none"></iframe>
+	
+	<iframe name="soilButton_iframe" src="https://api.particle.io/v1/devices/2d0035000a47373336323230/soilButton?access_token=3f43bfbf84424bb72ddb3142dcd662c28d570816" style="width:0; height:0; border:0; border:none"></iframe>
+	
+</body>
